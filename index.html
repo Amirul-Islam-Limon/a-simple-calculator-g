@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculator</title>
+</head>
+<body>
+    <h1 class="heading">Calculator</h1>
+    <div id="calculator">
+        <div id="text-bar">
+            <input type="text" name="" id="display" value="0" >
+        </div>
+        <div id="button-bar">
+            <div class="bar-1">
+                <input type="button" class="buttonValue" value="1" onclick="handleButton(value)">
+                <input type="button" class="buttonValue" value="2" onclick="handleButton(value)">
+                <input type="button" class="buttonValue" value="3" onclick="handleButton(value)">
+                <input type="button" class="buttonValue" value="/" onclick="handleButton(value)">
+            </div>
+            <div class="bar-2">
+                <input type="button" value="4" onclick="handleButton(value)">
+                <input type="button" value="5" onclick="handleButton(value)">
+                <input type="button" value="6" onclick="handleButton(value)">
+                <input type="button" value="*" onclick="handleButton(value)">
+            </div>
+            <div class="bar-3">
+                <input type="button" value="7" onclick="handleButton(value)">
+                <input type="button" value="8" onclick="handleButton(value)">
+                <input type="button" value="9" onclick="handleButton(value)">
+                <input type="button" value="-" onclick="handleButton(value)">
+            </div>
+            <div class="bar-4">
+                <input style="background-color: red;" type="button" value="C" onclick="handleClear()">
+                <input type="button" value="0" onclick="handleButton(value)">
+                <input style="background-color:white;" id="equal" type="button" value="=" onclick="handleEqual()">
+                <input type="button" value="+" onclick="handleButton(value)">
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function handleButton(number){
+            let previousValue = document.getElementById("display").value;
+            
+            if(previousValue == "0"){
+                document.getElementById("display").value = number
+            }
+            else{
+               let newValue = previousValue + number;
+               document.getElementById("display").value = newValue; 
+            } 
+        }
+
+        function handleEqual(){
+            let displayData = document.getElementById("display").value;
+            let finalResult = eval(displayData);
+            document.getElementById("display").value = finalResult;
+        }
+
+        function handleClear(){
+            document.getElementById("display").value = 0;
+        }
+    </script>
+</body>
+</html>
